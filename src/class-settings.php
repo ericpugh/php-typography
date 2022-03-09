@@ -241,6 +241,7 @@ class Settings implements \ArrayAccess, \JsonSerializable {
 	 * @param string $offset The settings key.
 	 * @param mixed  $value  The settings value.
 	 */
+    #[\ReturnTypeWillChange]
 	public function offsetSet( $offset, $value ) {
 		if ( ! empty( $offset ) ) {
 			$this->data[ $offset ] = $value;
@@ -252,6 +253,7 @@ class Settings implements \ArrayAccess, \JsonSerializable {
 	 *
 	 * @param string $offset The settings key.
 	 */
+    #[\ReturnTypeWillChange]
 	public function offsetExists( $offset ) {
 		return isset( $this->data[ $offset ] );
 	}
@@ -261,6 +263,7 @@ class Settings implements \ArrayAccess, \JsonSerializable {
 	 *
 	 * @param string $offset The settings key.
 	 */
+    #[\ReturnTypeWillChange]
 	public function offsetUnset( $offset ) {
 		unset( $this->data[ $offset ] );
 	}
@@ -272,6 +275,7 @@ class Settings implements \ArrayAccess, \JsonSerializable {
 	 *
 	 * @return mixed
 	 */
+    #[\ReturnTypeWillChange]
 	public function offsetGet( $offset ) {
 		return isset( $this->data[ $offset ] ) ? $this->data[ $offset ] : null;
 	}
@@ -281,6 +285,7 @@ class Settings implements \ArrayAccess, \JsonSerializable {
 	 *
 	 * @return mixed
 	 */
+    #[\ReturnTypeWillChange]
 	public function jsonSerialize() {
 		return \array_merge(
 			$this->data,
